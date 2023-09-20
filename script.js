@@ -10,7 +10,7 @@ function calcularDesconto() {
     } else if (valorCompra > 100) {
         nivelDesconto = 1;
     } else {
-        // aqui faz 
+        // aqui já pode encerrar a função e exibir o desconto igual a 0 no segundo label
     }
     
     let desconto = 0;
