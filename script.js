@@ -11,6 +11,7 @@ function calcularDesconto() {
         nivelDesconto = 1;
     } else {
         // aqui já pode encerrar a função e exibir o desconto igual a 0 no segundo label
+        // teste
     }
     
     let desconto = 0;
