@@ -34,6 +34,11 @@ function adicionarProduto() {
 
   // Chama a função de adicionar o objeto à tabela HTML
   adicionarObjetoATabela(objProduto);
+
+  // Limpa os inputs
+  document.getElementById("nomeProduto").value = "";
+  document.getElementById("quantidadeProduto").value = "";
+  document.getElementById("valorProduto").value = "";
 }
 
 function adicionarObjetoATabela(obj) {
@@ -44,6 +49,7 @@ function adicionarObjetoATabela(obj) {
   // Adiciona as células à linha
   tr.innerHTML = `
     <td>${obj.nome}</td>
+    <td>${obj.valor}</td>
     <td>${obj.quantidade}</td>
     <td>${obj.subtotal}</td>
   `;
