@@ -36,6 +36,10 @@ main{
     padding: 30px;
 }
 
+.hidden {
+    display: none;
+}
+
 .container-produtos{
     display: flex;
     flex-direction: column;
@@ -46,6 +50,7 @@ main{
 .container-produto{
     display: flex;
     padding-bottom: 15px;
+    gap: 1rem
 }
 
 #adicionarProduto{

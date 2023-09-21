@@ -10,6 +10,18 @@ const spanValorTotal = document.getElementById("valorTotal");
 // Cria um array universal para os objetos dos produtos
 let todosOsProdutos = [];
 
+function aparecerResultados(){
+  // Esconde a parte com os itens e os valores caso não tenha nenhum item adicionado
+  if(todosOsProdutos.length !== 0 ){ 
+    document.getElementById('carrinho').classList.remove('hidden')
+    document.getElementById('produtosAdicionados').classList.remove('hidden')
+  } else {
+    document.getElementById('carrinho').classList.add('hidden')
+    document.getElementById('produtosAdicionados').classList.add('hidden')
+  }
+
+}
+
 frm.addEventListener("submit", (e) => {
   e.preventDefault();
   // Pega os valores dos inputs
@@ -41,6 +53,7 @@ frm.addEventListener("submit", (e) => {
 
   // Chama a função de adicionar o objeto à tabela HTML
   adicionarObjetoATabela(objProduto);
+  aparecerResultados();
 
   // Limpa os inputs
   document.getElementById("formulario").reset();
@@ -71,8 +84,8 @@ function adicionarObjetoATabela(obj) {
 
     // Remove o produto do array
     todosOsProdutos.splice(todosOsProdutos.findIndex(item => item.nome === obj.nome), 1);
-
     exibirResultados();
+    aparecerResultados();
   });
 
   // Adiciona o botão a linha da tabela
@@ -83,6 +96,10 @@ function adicionarObjetoATabela(obj) {
 
   // Chama a função para exibir os valores finais
   exibirResultados();
+
+  // Chama a função pra exibir o carrinho e a tabela
+  aparecerResultados();
+  
 }
 
 // Função para calcular o valor subtotal de todos os produtos

@@ -26,10 +26,11 @@
               <input type="number" id="quantidadeProduto" min="1" value="1" required />
             </div>
           </div>
-          <input type="submit" value="Adicionar Produto" />
+          <!-- <input type="submit" value="Adicionar Produto" /> -->
+          <button type="submit">Adicionar produto</button>
         </div>
       </form>
-      <table id="produtosAdicionados">
+      <table id="produtosAdicionados" class="hidden">
         <thead>
           <tr>
             <th>Nome do produto</th>
@@ -41,15 +42,17 @@
         <tbody></tbody>
       </table>
       <hr>
-      <p id="textoSubtotal" class="p-valor">
-        Subtotal: <span id="valorSubtotal" for="textoSubtotal" class="span-valor-monetario"></span>
-      </p>
-      <p id="textoDesconto" class="p-valor">
-        Desconto: <span id="valorDesconto" for="textoDesconto" class="span-valor-monetario"></span>
-      </p>
-      <p id="textoTotal" class="p-valor">
-        Total: <span id="valorTotal" for="textoTotal" class="span-valor-monetario"></span>
-      </p>
+      <div id="carrinho" class="hidden">
+        <p id="textoSubtotal" class="p-valor">
+          Subtotal: <span id="valorSubtotal" for="textoSubtotal" class="span-valor-monetario"></span>
+        </p>
+        <p id="textoDesconto" class="p-valor">
+          Desconto: <span id="valorDesconto" for="textoDesconto" class="span-valor-monetario"></span>
+        </p>
+        <p id="textoTotal" class="p-valor">
+          Total: <span id="valorTotal" for="textoTotal" class="span-valor-monetario"></span>
+        </p>
+      </div>
     </main>
 
     <script src="index.js"></script>
