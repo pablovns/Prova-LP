@@ -7,7 +7,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
 
-* {
+* { 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -91,10 +91,15 @@ h1, h3 {
 
 #carrinho, #produtosAdicionados {
     width: 100%;
+    padding-left: 10px;
+    font-weight: 200;
 }
 
 .span-valor-monetario {
     float: right!important;
+    padding-right: 48px;
+    color: var(--money);
+    font-weight: 200;
 }
 
 .button-remove{
@@ -103,7 +108,7 @@ h1, h3 {
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
-    margin: 0 10px;
+    margin: 5px 10px;
     cursor: pointer;
     font-size: 35px;
 }
