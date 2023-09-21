@@ -42,18 +42,19 @@ function adicionarObjetoATabela(obj) {
   // Adiciona o objeto a uma linha da tabela
   // Cria uma linha para o produto
   const tr = document.createElement("tr");
+  tr.className = "table-row";
 
   // Adiciona as células à linha
   tr.innerHTML = `
-    <td>${obj.nome}</td>
-    <td>${obj.valor}</td>
-    <td>${obj.quantidade}</td>
-    <td>${obj.subtotal}</td>
+    <td class="table-row-column">${obj.nome}</td>
+    <td class="table-row-column">${obj.valor}</td>
+    <td class="table-row-column">${obj.quantidade}</td>
+    <td class="table-row-column">${obj.subtotal}</td>
   `;
 
   // Adiciona o botão de remover a linha
   const buttonToRemove = document.createElement("button");
-  buttonToRemove.className = "buttons-remove";
+  buttonToRemove.className = "button-remove";
   buttonToRemove.textContent = "Remover produto";
   buttonToRemove.addEventListener("click", () => {
     // Remove a linha da tabela
