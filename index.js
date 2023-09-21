@@ -1,5 +1,6 @@
 // Referencia a tabela de produtos
 const table = document.getElementById("produtosAdicionados");
+const frm = document.querySelector("form");
 
 // Referencia os elementos de output do carrinho
 const spanValorSubtotal = document.getElementById("valorSubtotal");
@@ -9,13 +10,22 @@ const spanValorTotal = document.getElementById("valorTotal");
 // Cria um array universal para os objetos dos produtos
 let todosOsProdutos = [];
 
-function adicionarProduto() {
+frm.addEventListener("submit", (e) => {
+  e.preventDefault();
   // Pega os valores dos inputs
   const nomeProduto = document.getElementById("nomeProduto").value;
   const quantidadeProduto = document.getElementById("quantidadeProduto").value;
-  const valorProduto = document.getElementById("valorProduto").value;
+  const valorProduto = document.getElementById("valorProduto").value
+
+  //  Verifica se já existe um item com o mesmo nome
+
+  if(todosOsProdutos.find(item => item.nome === nomeProduto) !== undefined){
+    alert('Produto já adicionado')
+    return
+  }
 
   // Amarzena em uma variavel o subtotal calculado do produto
+
   const subtotalProduto = calcularSubtotalProduto( quantidadeProduto, valorProduto );
 
   // Objeto contendo as informações do produto
@@ -33,10 +43,9 @@ function adicionarProduto() {
   adicionarObjetoATabela(objProduto);
 
   // Limpa os inputs
-  document.getElementById("nomeProduto").value = "";
-  document.getElementById("quantidadeProduto").value = "";
-  document.getElementById("valorProduto").value = "";
-}
+  document.getElementById("formulario").reset();
+
+});
 
 function adicionarObjetoATabela(obj) {
   // Adiciona o objeto a uma linha da tabela
@@ -61,7 +70,7 @@ function adicionarObjetoATabela(obj) {
     table.querySelector("tbody").removeChild(tr);
 
     // Remove o produto do array
-    todosOsProdutos.splice(tr.rowIndex, 1);
+    todosOsProdutos.splice(todosOsProdutos.findIndex(item => item.nome === obj.nome), 1);
 
     exibirResultados();
   });

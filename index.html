@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,23 +10,25 @@
     <main>
       <h1>Calculadora de Desconto</h1>
       <h3>Adicione os produtos e calcule o desconto baseado no valor total da compra</h3>
-      <div class="container-produtos">
-        <div class="container-produto">
-          <div class="container-input">
-            <label for="valorProduto">Nome do produto:</label>
-            <input type="text" id="nomeProduto"/>
+      <form id="formulario">
+        <div class="container-produtos">
+          <div class="container-produto">
+            <div class="container-input">
+              <label for="valorProduto">Nome do produto: </label>
+              <input type="text" id="nomeProduto" required />
+            </div>
+            <div class="container-input">
+              <label for="valorProduto">Valor do produto (R$): </label>
+              <input type="number" id="valorProduto" min="0" required />
+            </div>
+            <div class="container-input">
+              <label for="quantidadeProduto">Quantidade: </label>
+              <input type="number" id="quantidadeProduto" min="1" value="1" required />
+            </div>
           </div>
-          <div class="container-input">
-            <label for="valorProduto">Valor do produto (R$):</label>
-            <input type="number" id="valorProduto" min="0">
-          </div>
-          <div class="container-input">
-            <label for="quantidadeProduto">Quantidade:</label>
-            <input type="number" id="quantidadeProduto" min="1"/>
-          </div>
+          <input type="submit" value="Adicionar Produto" />
         </div>
-        <button id="adicionarProduto" onclick="adicionarProduto()">Adicionar Produto</button>
-      </div>
+      </form>
       <table id="produtosAdicionados">
         <thead>
           <tr>
@@ -40,13 +42,13 @@
       </table>
       <hr>
       <p id="textoSubtotal" class="p-valor">
-        Subtotal<span id="valorSubtotal" for="textoSubtotal" class="span-valor-monetario"></span>
+        Subtotal: <span id="valorSubtotal" for="textoSubtotal" class="span-valor-monetario"></span>
       </p>
       <p id="textoDesconto" class="p-valor">
-        Desconto<span id="valorDesconto" for="textoDesconto" class="span-valor-monetario"></span>
+        Desconto: <span id="valorDesconto" for="textoDesconto" class="span-valor-monetario"></span>
       </p>
       <p id="textoTotal" class="p-valor">
-        Total<span id="valorTotal" for="textoTotal" class="span-valor-monetario"></span>
+        Total: <span id="valorTotal" for="textoTotal" class="span-valor-monetario"></span>
       </p>
     </main>
 
