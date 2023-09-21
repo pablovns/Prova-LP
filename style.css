@@ -92,12 +92,13 @@ h1, h3 {
 #carrinho, #produtosAdicionados {
     width: 100%;
     padding-left: 10px;
+    padding-top: 30px;
     font-weight: 200;
 }
 
 .span-valor-monetario {
     float: right!important;
-    padding-right: 48px;
+    padding-right: 120px;
     color: var(--money);
     font-weight: 200;
 }
