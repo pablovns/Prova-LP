@@ -77,7 +77,7 @@ function adicionarObjetoATabela(obj) {
   // Adiciona o botão de remover a linha
   const buttonToRemove = document.createElement("button");
   buttonToRemove.className = "button-remove";
-  buttonToRemove.textContent = "Remover produto";
+  buttonToRemove.textContent = "X";
   buttonToRemove.addEventListener("click", () => {
     // Remove a linha da tabela
     table.querySelector("tbody").removeChild(tr);

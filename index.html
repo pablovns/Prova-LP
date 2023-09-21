@@ -11,8 +11,8 @@
       <h1>Calculadora de Desconto</h1>
       <h3>Adicione os produtos e calcule o desconto baseado no valor total da compra</h3>
       <form id="formulario">
-        <div class="container-produtos">
-          <div class="container-produto">
+        <div class="container-form">
+          <div class="container-inputs">
             <div class="container-input">
               <label for="valorProduto">Nome do produto: </label>
               <input type="text" id="nomeProduto" required />
@@ -27,7 +27,7 @@
             </div>
           </div>
           <!-- <input type="submit" value="Adicionar Produto" /> -->
-          <button type="submit">Adicionar produto</button>
+          <button type="submit" id="adicionarProduto">Adicionar produto</button>
         </div>
       </form>
       <table id="produtosAdicionados" class="hidden">
