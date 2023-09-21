@@ -16,10 +16,7 @@ function adicionarProduto() {
   const valorProduto = document.getElementById("valorProduto").value;
 
   // Amarzena em uma variavel o subtotal calculado do produto
-  const subtotalProduto = calcularSubtotalProduto(
-    quantidadeProduto,
-    valorProduto
-  );
+  const subtotalProduto = calcularSubtotalProduto( quantidadeProduto, valorProduto );
 
   // Objeto contendo as informações do produto
   const objProduto = {
@@ -135,10 +132,7 @@ function calcularSubtotalProduto(quantidade, valor) {
 function exibirResultados() {
   // Obtém os valores do subtotal, desconto e total
   let valorSubtotal = calcularSubtotalProdutos();
-  let valorDesconto = calcularDesconto(
-    valorSubtotal,
-    calcularNivelDesconto(valorSubtotal)
-  );
+  let valorDesconto = calcularDesconto( valorSubtotal, calcularNivelDesconto(valorSubtotal) );
   let valorTotal = valorSubtotal - valorDesconto;
 
   // Exibe os valores nos spans correspondentes
