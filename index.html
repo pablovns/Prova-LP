@@ -1,40 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de Desconto</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>Calculadora de Desconto</h1>
-  
+
     <div class="container-produtos">
-      <div class="container-produto"> 
+      <div class="container-produto">
         <!-- 
           div contendo os inputs dos valores e o botão de remover 
           essa div é tem que ser copiada/duplicada quando apertar no botão de adicionar e removida ao clicar no de remover
         -->
         <div class="container-input">
+          <label for="valorProduto">Nome do produto:</label>
+          <input type="text" id="nomeProduto" value="Carro"/>
+        </div>
+        <div class="container-input">
           <label for="valorProduto">Valor do produto (R$):</label>
-          <input type="number" id="valorProduto" min="0">
+          <input type="number" id="valorProduto" min="0" value="10.5"/>
         </div>
         <div class="container-input">
           <label for="quantidadeProduto">Quantidade:</label>
-          <input type="number" id="quantidadeProduto" min="1">
+          <input type="number" id="quantidadeProduto" min="1" value="3"/>
         </div>
-        <button onclick="removerProduto()">Remover</button>
       </div>
 
-      <button onclick="adicionarProduto()">Adicionar Produto</button>
+      <button id="adicionarProduto" onclick="adicionarProduto()">Adicionar Produto</button>
     </div>
 
-    <button onclick="calcularPreco()">Calcular Preço</button>
+    <!-- <div id="produtosAdicionados"></div> -->
+    <table id="produtosAdicionados">
+      <thead>
+        <tr>
+          <th>Nome do produto</th>
+          <th>Quantidade</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
 
-    <p id="textoSubtotal">Subtotal<label id="valorSubtotal" for="textoSubtotal">Aqui vai o valor do Subtotal</label></p>
-    <p id="textoDesconto">Desconto<label id="valorDesconto" for="textoDesconto">Aqui vai o valor do Desconto</label></p>
-    <p id="textoTotal">Total<label id="valorTotal" for="textoTotal">Aqui vai o valor do Total</label></p>
-    
-    <script src="script.js"></script>
-</body>
+    <h2 id="textoSubtotal">
+      Subtotal<span id="valorSubtotal" for="textoSubtotal"></span>
+    </h2>
+    <h2 id="textoDesconto">
+      Desconto<span id="valorDesconto" for="textoDesconto"></span>
+    </h2>
+    <h2 id="textoTotal">
+      Total<span id="valorTotal" for="textoTotal"></span>
+    </h2>
+
+    <script src="index.js"></script>
+  </body>
 </html>
