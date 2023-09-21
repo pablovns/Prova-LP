@@ -1,0 +1,108 @@
+/* Palheta de cores
+ Background: #F2ECBE
+ Background-Quadrado: #E2C799
+ Botões: #9A3B3B
+ Fonte: #F2ECBE
+ #C08261*/
+
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --bgColor: #F2ECBE;
+    --bgSquare: #E2C799;
+    --btn: #9A3B3B;
+    --font: #F2ECBE;
+}
+
+body{
+    background-color: var(--bgColor);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bgSquare);
+    border-radius: 5px;
+    margin: 60px;
+    padding: 30px;
+}
+
+.container-produtos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.container-produto{
+    display: flex;
+    padding-bottom: 15px;
+}
+
+#adicionarProduto{
+    background-color: var(--bgColor);
+    color: var(--btn);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+#adicionarProduto:hover{
+    background-color: var(--btn);
+    color: var(--font);
+    transition: 0.3s;
+}
+
+.button-remove{
+    background-color: var(--bgColor);
+    color: var(--btn);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.button-remove:hover{
+    background-color: var(--btn);
+    color: var(--font);
+    transition: 0.3s;
+}
+
+#produtosAdicionados{
+    border-collapse:collapse;
+    padding: 10px;
+    text-align: left;
+}
+
+
+table {
+    width: 100%;
+}
+
+table th {
+    background-color: #333;
+    color: #fff;
+}
+
+table td {
+    padding: 10px;
+}
+
+/* Borda das celulas */
+th, td {
+    border: 1px solid #333;
+}
+
+tr {
+    vertical-align: center;
+}
