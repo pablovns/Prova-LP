@@ -37,7 +37,7 @@ function adicionarProduto() {
 }
 
 function adicionarObjetoATabela(obj) {
-  // Adiciona as linhas à tabela
+  // Adiciona o objeto a uma linha da tabela
   // Cria uma linha para o produto
   const tr = document.createElement("tr");
 
@@ -74,7 +74,6 @@ function adicionarObjetoATabela(obj) {
 
 // Função para calcular o valor subtotal de todos os produtos
 function calcularSubtotalProdutos() {
-  // Inicializa o subtotal como 0
   let subtotalProdutos = 0;
 
   // Percorre o array de produtos e soma o valor subtotal dos produtos
@@ -133,8 +132,6 @@ function calcularSubtotalProduto(quantidade, valor) {
 
 // Função executada quando alguma linha é adicionada ou removida na tabela 
 function exibirResultados() {
-  console.log("Acionado!");
-  
   // Obtém os valores do subtotal, desconto e total
   let valorSubtotal = calcularSubtotalProdutos();
   let valorDesconto = calcularDesconto(valorSubtotal, calcularNivelDesconto(valorSubtotal));
