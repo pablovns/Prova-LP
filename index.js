@@ -1,10 +1,10 @@
-// Referencia a tabela de produtos 
+// Referencia a tabela de produtos
 const table = document.getElementById("produtosAdicionados");
 
 // Referencia os elementos de output do carrinho
-const spanValorSubtotal = document.getElementById("valorSubtotal"); 
-const spanValorDesconto = document.getElementById("valorDesconto"); 
-const spanValorTotal = document.getElementById("valorTotal"); 
+const spanValorSubtotal = document.getElementById("valorSubtotal");
+const spanValorDesconto = document.getElementById("valorDesconto");
+const spanValorTotal = document.getElementById("valorTotal");
 
 // Cria um array universal para os objetos dos produtos
 let todosOsProdutos = [];
@@ -15,19 +15,19 @@ function adicionarProduto() {
   const quantidadeProduto = document.getElementById("quantidadeProduto").value;
   const valorProduto = document.getElementById("valorProduto").value;
 
-  // Amarzena em uma variavel o subtotal do produto
-  const subtotalProduto = calcularSubtotalProduto(quantidadeProduto, valorProduto);
+  // Amarzena em uma variavel o subtotal calculado do produto
+  const subtotalProduto = calcularSubtotalProduto(
+    quantidadeProduto,
+    valorProduto
+  );
 
   // Objeto contendo as informações do produto
   const objProduto = {
     nome: nomeProduto,
     valor: valorProduto,
     quantidade: quantidadeProduto,
-    subtotal: subtotalProduto
+    subtotal: subtotalProduto,
   };
-
-  // Mostra o objeto no console
-  console.log(objProduto);
 
   // Adiciona o objeto no array
   todosOsProdutos.push(objProduto);
@@ -77,15 +77,16 @@ function calcularSubtotalProdutos() {
   let subtotalProdutos = 0;
 
   // Percorre o array de produtos e soma o valor subtotal dos produtos
-  for (let i = 0; i < todosOsProdutos.length; i++) {
+  for (let i = 0; i < calcularQuantidadeProdutos(); i++) {
     subtotalProdutos += todosOsProdutos[i].subtotal;
   }
+
   return subtotalProdutos;
 }
 
 function calcularNivelDesconto(subtotal) {
   let nivelDesconto = 0;
-  
+
   if (subtotal >= 300) {
     nivelDesconto = 3;
   } else if (subtotal >= 200) {
@@ -99,9 +100,6 @@ function calcularNivelDesconto(subtotal) {
 
 // Função para calcular o desconto a ser aplicado
 function calcularDesconto(subtotal, nivelDesconto) {
-  //Mostra o subtotal no console
-  console.log(`Subtotal: ${subtotal}`);
-  
   let porcentagemDeDesconto = 0;
   switch (nivelDesconto) {
     case 1:
@@ -117,10 +115,7 @@ function calcularDesconto(subtotal, nivelDesconto) {
       break;
   }
 
-  let valorDesconto = (subtotal * porcentagemDeDesconto).toFixed(2);
-
-  // Mostra o desconto aplicado no console
-  console.log(`Desconto aplicado: ${valorDesconto}`);
+  let valorDesconto = (subtotal * porcentagemDeDesconto);
 
   return valorDesconto;
 }
@@ -130,15 +125,27 @@ function calcularSubtotalProduto(quantidade, valor) {
   return quantidade * valor;
 }
 
-// Função executada quando alguma linha é adicionada ou removida na tabela 
+// Função executada quando alguma linha é adicionada ou removida na tabela
 function exibirResultados() {
   // Obtém os valores do subtotal, desconto e total
   let valorSubtotal = calcularSubtotalProdutos();
-  let valorDesconto = calcularDesconto(valorSubtotal, calcularNivelDesconto(valorSubtotal));
+  let valorDesconto = calcularDesconto(
+    valorSubtotal,
+    calcularNivelDesconto(valorSubtotal)
+  );
   let valorTotal = valorSubtotal - valorDesconto;
 
   // Exibe os valores nos spans correspondentes
-  document.getElementById("valorSubtotal").textContent = `R$ ${valorSubtotal}`;
-  document.getElementById("valorDesconto").textContent = `R$ ${valorDesconto}`;
-  document.getElementById("valorTotal").textContent = `R$ ${valorTotal}`;
-};
+  document.getElementById("valorSubtotal").textContent = `R$ ${valorSubtotal.toFixed(2)}`;
+  document.getElementById("valorDesconto").textContent = `R$ ${valorDesconto.toFixed(2)}`;
+  document.getElementById("valorTotal").textContent = `R$ ${valorTotal.toFixed(2)}`;
+}
+
+function calcularQuantidadeProdutos() {
+  let contador = 0;
+  while (todosOsProdutos[contador] !== undefined) {
+    contador++;
+  }
+  
+  return contador;
+}
