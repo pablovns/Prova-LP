@@ -23,7 +23,7 @@ function adicionarProduto() {
     nome: nomeProduto,
     valor: valorProduto,
     quantidade: quantidadeProduto,
-    subtotal: subtotalProduto,
+    subtotal: subtotalProduto
   };
 
   // Mostra o objeto no console
@@ -84,14 +84,9 @@ function calcularSubtotalProdutos() {
   return subtotalProdutos;
 }
 
-// Função para calcular o desconto a ser aplicado
-function calcularDesconto(subtotal) {
-  //Mostra o subtotal no console
-  console.log(`Subtotal: ${subtotal}`);
-
+function calcularNivelDesconto(subtotal) {
   let nivelDesconto = 0;
-  let porcentagemDeDesconto = 0;
-
+  
   if (subtotal >= 300) {
     nivelDesconto = 3;
   } else if (subtotal >= 200) {
@@ -100,6 +95,15 @@ function calcularDesconto(subtotal) {
     nivelDesconto = 1;
   }
 
+  return nivelDesconto;
+}
+
+// Função para calcular o desconto a ser aplicado
+function calcularDesconto(subtotal, nivelDesconto) {
+  //Mostra o subtotal no console
+  console.log(`Subtotal: ${subtotal}`);
+  
+  let porcentagemDeDesconto = 0;
   switch (nivelDesconto) {
     case 1:
       porcentagemDeDesconto = 0.05; // 5%
@@ -133,7 +137,7 @@ function exibirResultados() {
   
   // Obtém os valores do subtotal, desconto e total
   let valorSubtotal = calcularSubtotalProdutos();
-  let valorDesconto = calcularDesconto(valorSubtotal);
+  let valorDesconto = calcularDesconto(valorSubtotal, calcularNivelDesconto(valorSubtotal));
   let valorTotal = valorSubtotal - valorDesconto;
 
   // Exibe os valores nos spans correspondentes
