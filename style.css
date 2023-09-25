@@ -26,7 +26,7 @@
 
 body {
   background-color: var(--bgColor);
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -51,7 +51,7 @@ input {
   background-color: var(--bgColor);
   color: var(--font);
   border-radius: 14px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 200;
 }
 
@@ -80,6 +80,49 @@ td {
 
 tr {
   vertical-align: center;
+}
+
+#adicionarProduto {
+  background-color: var(--bgColor);
+  color: var(--font);
+  border: none;
+  border-radius: 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif
+}
+
+#adicionarProduto:hover {
+  background-color: var(--btn);
+  color: var(--font);
+  transition: 0.3s;
+}
+
+#carrinho {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+#carrinho,
+#produtosAdicionados {
+  padding-left: 10px;
+  padding-top: 30px;
+  font-weight: 200;
+}
+
+#produtosAdicionados {
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: left;
+}
+
+#formulario {
+  width: 100%;
+  padding: 20px 0;
 }
 
 .hidden {
@@ -126,42 +169,12 @@ tr {
 
 .span-valor-monetario {
   float: right !important;
-  padding-right: 120px;
   color: var(--money);
   font-weight: 200;
+  margin-left: 10px;
 }
 
-#adicionarProduto {
-  background-color: var(--bgColor);
-  color: var(--btn);
-  border: none;
-  border-radius: 10px;
-  padding: 15px 20px;
-  cursor: pointer;
-  font-size: 19px;
-}
-
-#adicionarProduto:hover {
-  background-color: var(--btn);
-  color: var(--font);
-  transition: 0.3s;
-}
-
-#carrinho,
-#produtosAdicionados {
-  width: 100%;
-  padding-left: 10px;
-  padding-top: 30px;
-  font-weight: 200;
-}
-
-#produtosAdicionados {
-  border-collapse: collapse;
-  padding: 10px;
-  text-align: left;
-}
-
-#formulario {
-  width: 100%;
-  padding: 20px 0;
+.horizontal-line {
+  border: none; /* Remove as bordas padrões primeiro */ 
+  border-top: 1px solid var(--font); /* Adiciona borda só em cima */ 
 }
