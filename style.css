@@ -20,7 +20,7 @@
   --bgSquare: #393e46;
   --btn: #00adb5;
   --font: #eeeeee;
-  --money: #96c291;
+  --money: #8f8f8f;
   --red: #d11a2a;
 }
 
@@ -109,14 +109,12 @@ tr {
 
 #carrinho,
 #produtosAdicionados {
-  padding-left: 10px;
-  padding-top: 30px;
+  padding-top: 20px;
   font-weight: 200;
 }
 
 #produtosAdicionados {
   border-collapse: collapse;
-  padding: 10px;
   text-align: left;
 }
 
@@ -169,7 +167,7 @@ tr {
 
 .span-valor-monetario {
   float: right !important;
-  color: var(--money);
+  /* color: var(--money); */
   font-weight: 200;
   margin-left: 20px;
 }
@@ -177,4 +175,8 @@ tr {
 .horizontal-line {
   border: none; /* Remove as bordas padrões primeiro */ 
   border-top: 1px solid var(--font); /* Adiciona borda só em cima */ 
+}
+
+.escurecido {
+  color: var(--money);
 }
