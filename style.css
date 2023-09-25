@@ -1,9 +1,11 @@
-/* Palheta de cores
+/* 
+ Palheta de cores
  Background: #222831
  Background-Quadrado: #393E46
  Botões: #00ADB5
  Fonte: #EEEEEE
- #C08261*/
+ #C08261
+*/
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap");
 
@@ -41,13 +43,47 @@ main {
   padding: 30px;
 }
 
-.hidden {
-  display: none;
+input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: var(--bgColor);
+  color: var(--font);
+  border-radius: 14px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
 }
 
 h1,
 h3 {
+  text-align: left;
+  width: 100%;
   padding-top: 15px;
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  background-color: var(--bgColor);
+  color: #fff;
+}
+
+/* Borda das celulas */
+th,
+td {
+  padding: 10px;
+  border: 1px solid var(--bgColor);
+}
+
+tr {
+  vertical-align: center;
+}
+
+.hidden {
+  display: none;
 }
 
 .container-form {
@@ -71,41 +107,6 @@ h3 {
   align-items: center;
 }
 
-#adicionarProduto {
-  background-color: var(--bgColor);
-  color: var(--btn);
-  border: none;
-  border-radius: 10px;
-  padding: 15px 20px;
-  cursor: pointer;
-  font-size: 19px;
-}
-#adicionarProduto:hover {
-  background-color: var(--btn);
-  color: var(--font);
-  transition: 0.3s;
-}
-
-#formulario {
-  width: 100%;
-  padding: 20px 0;
-}
-
-#carrinho,
-#produtosAdicionados {
-  width: 100%;
-  padding-left: 10px;
-  padding-top: 30px;
-  font-weight: 200;
-}
-
-.span-valor-monetario {
-  float: right !important;
-  padding-right: 120px;
-  color: var(--money);
-  font-weight: 200;
-}
-
 .button-remove {
   background-color: var(--bgColor);
   color: var(--btn);
@@ -123,50 +124,44 @@ h3 {
   transition: 0.3s;
 }
 
+.span-valor-monetario {
+  float: right !important;
+  padding-right: 120px;
+  color: var(--money);
+  font-weight: 200;
+}
+
+#adicionarProduto {
+  background-color: var(--bgColor);
+  color: var(--btn);
+  border: none;
+  border-radius: 10px;
+  padding: 15px 20px;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+#adicionarProduto:hover {
+  background-color: var(--btn);
+  color: var(--font);
+  transition: 0.3s;
+}
+
+#carrinho,
+#produtosAdicionados {
+  width: 100%;
+  padding-left: 10px;
+  padding-top: 30px;
+  font-weight: 200;
+}
+
 #produtosAdicionados {
   border-collapse: collapse;
   padding: 10px;
   text-align: left;
 }
 
-input {
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  background-color: var(--bgColor);
-  color: var(--font);
-  border-radius: 14px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-}
-
-table {
+#formulario {
   width: 100%;
-}
-
-table th {
-  background-color: var(--bgColor);
-  color: #fff;
-}
-
-table td,
-table th {
-  padding: 10px;
-}
-
-/* Borda das celulas */
-th,
-td {
-  border: 1px solid var(--bgColor);
-}
-
-tr {
-  vertical-align: center;
-}
-
-h1,
-h3 {
-  text-align: left;
-  width: 100%;
+  padding: 20px 0;
 }
