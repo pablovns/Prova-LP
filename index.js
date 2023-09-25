@@ -32,6 +32,7 @@ frm.addEventListener("submit", (e) => {
 
   if(todosOsProdutos.find(item => item.nome === nomeProduto) !== undefined){
     alert('Produto já adicionado');
+    document.getElementById("nomeProduto").focus();
     return
   }
 
@@ -56,7 +57,7 @@ frm.addEventListener("submit", (e) => {
 
   // Limpa os inputs
   document.getElementById("formulario").reset();
-
+  document.getElementById("nomeProduto").focus();
 });
 
 function adicionarObjetoATabela(obj) {
