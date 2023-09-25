@@ -123,6 +123,10 @@ tr {
   padding: 20px 0;
 }
 
+#textoTotal {
+  padding-top: 5px;
+}
+
 .hidden {
   display: none;
 }
