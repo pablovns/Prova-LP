@@ -13,13 +13,12 @@ let todosOsProdutos = [];
 function aparecerResultados(){
   // Esconde a parte com os itens e os valores caso não tenha nenhum item adicionado
   if(todosOsProdutos.length !== 0 ){ 
-    document.getElementById('carrinho').classList.remove('hidden')
-    document.getElementById('produtosAdicionados').classList.remove('hidden')
+    document.getElementById('carrinho').classList.remove('hidden');
+    document.getElementById('produtosAdicionados').classList.remove('hidden');
   } else {
-    document.getElementById('carrinho').classList.add('hidden')
-    document.getElementById('produtosAdicionados').classList.add('hidden')
+    document.getElementById('carrinho').classList.add('hidden');
+    document.getElementById('produtosAdicionados').classList.add('hidden');
   }
-
 }
 
 frm.addEventListener("submit", (e) => {
@@ -27,12 +26,12 @@ frm.addEventListener("submit", (e) => {
   // Pega os valores dos inputs
   const nomeProduto = document.getElementById("nomeProduto").value;
   const quantidadeProduto = document.getElementById("quantidadeProduto").value;
-  const valorProduto = document.getElementById("valorProduto").value
+  const valorProduto = document.getElementById("valorProduto").value;
 
   //  Verifica se já existe um item com o mesmo nome
 
   if(todosOsProdutos.find(item => item.nome === nomeProduto) !== undefined){
-    alert('Produto já adicionado')
+    alert('Produto já adicionado');
     return
   }
 
@@ -45,7 +44,7 @@ frm.addEventListener("submit", (e) => {
     nome: nomeProduto,
     valor: valorProduto,
     quantidade: quantidadeProduto,
-    subtotal: subtotalProduto,
+    subtotal: subtotalProduto
   };
 
   // Adiciona o objeto no array
@@ -77,7 +76,8 @@ function adicionarObjetoATabela(obj) {
   // Adiciona o botão de remover a linha
   const buttonToRemove = document.createElement("button");
   buttonToRemove.className = "button-remove";
-  buttonToRemove.textContent = "X";
+  buttonToRemove.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+  // buttonToRemove.textContent = `Remover`;
   buttonToRemove.addEventListener("click", () => {
     // Remove a linha da tabela
     table.querySelector("tbody").removeChild(tr);
@@ -128,9 +128,9 @@ function calcularNivelDesconto(subtotal) {
   return nivelDesconto;
 }
 
-// Função para calcular o desconto a ser aplicado
-function calcularDesconto(subtotal, nivelDesconto) {
+function calcularPorcentagemDesconto(nivelDesconto) {
   let porcentagemDeDesconto = 0;
+
   switch (nivelDesconto) {
     case 1:
       porcentagemDeDesconto = 0.05; // 5%
@@ -145,7 +145,12 @@ function calcularDesconto(subtotal, nivelDesconto) {
       break;
   }
 
-  let valorDesconto = (subtotal * porcentagemDeDesconto);
+  return porcentagemDeDesconto;
+}
+
+// Função para calcular o desconto a ser aplicado
+function calcularDesconto(subtotal, nivelDesconto) {
+  let valorDesconto = (subtotal * calcularPorcentagemDesconto(nivelDesconto));
 
   return valorDesconto;
 }
@@ -158,14 +163,17 @@ function calcularSubtotalProduto(quantidade, valor) {
 // Função executada quando alguma linha é adicionada ou removida na tabela
 function exibirResultados() {
   // Obtém os valores do subtotal, desconto e total
-  let valorSubtotal = calcularSubtotalProdutos();
-  let valorDesconto = calcularDesconto( valorSubtotal, calcularNivelDesconto(valorSubtotal) );
-  let valorTotal = valorSubtotal - valorDesconto;
+  let valorSubtotal = calcularSubtotalProdutos().toFixed(2);
+
+  let nivelDesconto = calcularNivelDesconto(valorSubtotal);
+
+  let valorDesconto = calcularDesconto(valorSubtotal, nivelDesconto).toFixed(2);
+  let valorTotal = (valorSubtotal - valorDesconto).toFixed(2);
 
   // Exibe os valores nos spans correspondentes
-  document.getElementById("valorSubtotal").textContent = `R$ ${valorSubtotal.toFixed(2)}`;
-  document.getElementById("valorDesconto").textContent = `R$ ${valorDesconto.toFixed(2)}`;
-  document.getElementById("valorTotal").textContent = `R$ ${valorTotal.toFixed(2)}`;
+  document.getElementById("valorSubtotal").textContent = `R$ ${valorSubtotal}`;
+  document.getElementById("valorDesconto").textContent = `(${calcularPorcentagemDesconto(nivelDesconto)*100}%) R$ ${valorDesconto}`;
+  document.getElementById("valorTotal").textContent = `R$ ${valorTotal}`;
 }
 
 function calcularQuantidadeProdutos() {
