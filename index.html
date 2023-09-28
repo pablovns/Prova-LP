@@ -15,19 +15,18 @@
         <div class="container-form">
           <div class="container-inputs">
             <div class="container-input">
-              <label for="valorProduto">Nome do produto: </label>
+              <label for="valorProduto">Nome: </label>
               <input type="text" id="nomeProduto" required />
             </div>
             <div class="container-input">
-              <label for="valorProduto">Valor do produto (R$): </label>
+              <label for="valorProduto">Preço (R$): </label>
               <input type="number" id="valorProduto" min="0" step="0.01" required />
             </div>
             <div class="container-input">
-              <label for="quantidadeProduto">Quantidade: </label>
+              <label for="quantidadeProduto">*</label>
               <input type="number" id="quantidadeProduto" min="1" value="1" required />
             </div>
           </div>
-          <!-- <input type="submit" value="Adicionar Produto" /> -->
           <button type="submit" id="adicionarProduto">Adicionar</button>
         </div>
       </form>
@@ -35,7 +34,7 @@
         <thead>
           <tr>
             <th>Nome do produto</th>
-            <th>Valor</th>
+            <th>Preço</th>
             <th>Quantidade</th>
             <th>Subtotal</th>
           </tr>
